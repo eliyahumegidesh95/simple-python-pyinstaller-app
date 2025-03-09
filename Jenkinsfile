@@ -14,7 +14,6 @@ pipeline {
         stage('Test') {
             steps {
                 script {
-                    unstash 'myFiles'
                     sh 'cat output.txt' // Accesses the stashed file
                 }
             }
