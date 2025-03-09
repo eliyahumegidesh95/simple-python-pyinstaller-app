@@ -5,8 +5,7 @@ pipeline {
         stage('Build') {
             steps {
                 script {
-                    sh 'echo "Hello, Jenkins!" > output.txt'
-                    stash name: 'myFiles', includes: 'output.txt'
+                    sh 'echo "Hello, Jenkins!" > /tmp/output.txt'
                 }
             }
         }
@@ -14,7 +13,7 @@ pipeline {
         stage('Test') {
             steps {
                 script {
-                    sh 'cat output.txt' // Accesses the stashed file
+                    sh 'cat /tmp/output.txt' // Accesses the stashed file
                 }
             }
         }
